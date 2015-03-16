@@ -1,4 +1,7 @@
-cd behat
-composer install --prefer-source
-cp behat.local.yml.example behat.local.yml
-./bin/behat --tags=~wip
+before_script:
+  - cd behat
+  - composer install --prefer-source
+  - cp behat.local.yml.example behat.local.yml
+
+script:
+  - ./bin/behat --tags=~wip
