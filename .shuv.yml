@@ -1,7 +1,0 @@
-before_script:
-  - cd behat
-  - composer install --prefer-source -vvv
-  - cp behat.local.yml.example behat.local.yml
-
-script:
-  - ./bin/behat --tags=~wip
