@@ -2,7 +2,7 @@ before_script:
   - cd behat
   # Instead of composer install, we save time by getting
   # a gzipped file with the vendor and bin directories.
-  - curl https://doc-0c-9g-docs.googleusercontent.com/docs/securesc/ha0ro937gcuc7l7deffksulhg5h7mbp1/mqknuravg4vpuvpbmtj8im1l77fa8oa7/1428696000000/05641321188684072806/\*/0B943t2AqZZxCaktzRzZBcEs5UEk\?e\=download | tar xz
+  - tar zxf behat-vendor.tar.gz
   - cp behat.local.yml.example behat.local.yml
 
 script:
