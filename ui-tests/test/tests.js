@@ -32,7 +32,9 @@ var caps = selectedCaps ? capsConfig[selectedCaps] : undefined;
 var providerPrefix = process.env.PROVIDER_PREFIX || '';
 var testName = providerPrefix + '-' + selectedCaps || providerPrefix + '-' + 'default';
 
-describe('Search engine tests', function() {
+var url = 'http://www.gizra.com'
+
+describe('Gizra.com visual regression tests', function() {
 
   this.timeout(99999999);
   var client = {};
@@ -45,21 +47,11 @@ describe('Search engine tests', function() {
     shoovWebdrivercss.after(done);
   });
 
-  it('should show the Google main search page',function(done) {
+  it('should show a blog post page',function(done) {
     client
-      .url('https://www.google.com/?gfe_rd=cr&ei=ku8bVbG3K-SG8QeFmICQDg&gws_rd=cr&fg=1')
+      .url(url + '/content/cross-browser-visual-regression-with-shoov/')
       .webdrivercss(testName, {
-        name: 'google'
-      }, shoovWebdrivercss.processResults)
-      .call(done);
-
-  });
-
-  it('should show the DuckDuckGo main search page',function(done) {
-    client
-      .url('https://duckduckgo.com/')
-      .webdrivercss(testName, {
-        name: 'duckduck'
+        name: 'blog-post-page'
       }, shoovWebdrivercss.processResults)
       .call(done);
 
