@@ -26,11 +26,11 @@ var capsConfig = {
   }
 }
 
-var selectedCaps = process.env.SELECTED_CAPS;
+var selectedCaps = process.env.SELECTED_CAPS || undefined;
 var caps = selectedCaps ? capsConfig[selectedCaps] : undefined;
 
-var providerPrefix = process.env.PROVIDER_PREFIX || '';
-var testName = providerPrefix + '-' + selectedCaps || providerPrefix + '-' + 'default';
+var providerPrefix = process.env.PROVIDER_PREFIX ? process.env.PROVIDER_PREFIX + '-' : '';
+var testName = selectedCaps ? providerPrefix + selectedCaps : providerPrefix + 'default';
 
 var url = 'http://www.gizra.com'
 
@@ -50,10 +50,11 @@ describe('Gizra.com visual regression tests', function() {
   it('should show a blog post page',function(done) {
     client
       .url(url + '/content/cross-browser-visual-regression-with-shoov/')
+      // Hide comments using jQuery.
+      .execute("jQuery('#disqus_thread').hide();")
       .webdrivercss(testName, {
         name: 'blog-post-page'
       }, shoovWebdrivercss.processResults)
       .call(done);
-
   });
 });
