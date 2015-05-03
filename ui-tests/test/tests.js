@@ -50,10 +50,10 @@ describe('Gizra.com visual regression tests', function() {
   it('should show a blog post page',function(done) {
     client
       .url(url + '/content/cross-browser-visual-regression-with-shoov/')
-      // Hide comments using jQuery.
-      .execute("jQuery('#disqus_thread').hide();")
       .webdrivercss(testName, {
-        name: 'blog-post-page'
+        name: 'blog-post-page',
+        // Hide Disqus comments.
+        remove: '#disqus_thread'
       }, shoovWebdrivercss.processResults)
       .call(done);
   });
