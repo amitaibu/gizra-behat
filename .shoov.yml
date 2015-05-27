@@ -12,3 +12,4 @@ before_script:
 
 script:
   - ./bin/behat --tags=~wip
+  - echo $ngrok
