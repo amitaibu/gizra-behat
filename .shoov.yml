@@ -1,3 +1,6 @@
+addons:
+  - selenium
+  
 before_script:
   - cd behat
   # Instead of composer install, we save time by getting
