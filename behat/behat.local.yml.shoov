@@ -1,0 +1,8 @@
+default:
+  extensions:
+    Behat\MinkExtension:
+      base_url: "https://google.com"
+      selenium2:
+        # http://selenium is the URL alias to the Selenium docker container.
+        wd_host: "http://selenium:4444/wd/hub"
+        browser: chrome
