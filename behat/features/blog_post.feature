@@ -3,7 +3,7 @@ Feature: Blog post
   As an anonymous user
   We need to be able to have access to a blog post page
 
-  @api
+  @javascript
   Scenario: Visit blog post page
     Given I am an anonymous user
     When  I visit "/"
